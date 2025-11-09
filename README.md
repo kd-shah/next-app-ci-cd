@@ -17,9 +17,11 @@ This project includes a CI/CD pipeline configured with **GitHub Actions**.
 ### 🧱 Pipeline Overview
 
 The pipeline runs automatically on:
+
 - Every **push** or **pull request** to the `main` or `dev` branches.
 
 It performs the following steps:
+
 1. **Install dependencies**
 2. **Run tests and lint checks**
 3. **Build the Next.js app**
