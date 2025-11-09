@@ -1,0 +1,29 @@
+name: Build Check
+
+on:
+  pull_request:
+    branches: [dev, master]
+
+jobs:
+  pr-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Lint Check
+        run: npm run lint -- --max-warnings 0
+
+      - name: Prettier Check
+        run: npx prettier . --check
+
+      - name: Build Check
+        run: npm run build
